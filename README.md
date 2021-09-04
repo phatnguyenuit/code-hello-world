@@ -22,8 +22,7 @@ Hello World code extension.
 - Pick selection
 - Get selected text
 - Snippets:
-  - `JavaScript`
-    - `hw` => `console.log("Hello world!")`
+  - `hw` => `console.log("Hello world!")`. Available for programming languages: `JavaScript`, `TypeScript`, `JavaScript React`, `TypeScript React`,
 
 ## Requirements
 
