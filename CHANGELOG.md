@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/phatnguyenuit/code-hello-world/compare/1.0.17...1.1.0) (2021-09-04)
+
+
+### Features
+
+* add snippets ([368d5c8](https://github.com/phatnguyenuit/code-hello-world/commit/368d5c8c489e5757737266dc5f9d1ec9b64f79ac))
+
 ## [1.0.17](https://github.com/phatnguyenuit/code-hello-world/compare/1.0.16...1.0.17) (2021-09-04)
 
 ## [1.0.16](https://github.com/phatnguyenuit/code-hello-world/compare/1.0.15...1.0.16) (2021-09-04)
