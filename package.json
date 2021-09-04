@@ -7,6 +7,13 @@
 		"type": "git",
 		"url": "git+https://github.com/phatnguyenuit/code-hello-world.git"
 	},
+	"main": "./dist/extension.js",
+	"keywords": [
+		"vscode",
+		"vscode-extension",
+		"typescript",
+		"scratch"
+	],
 	"publisher": "fast-nguyen",
 	"engines": {
 		"vscode": "^1.54.0"
@@ -23,7 +30,6 @@
 		"onCommand:code-hello-world.quickPick",
 		"onCommand:code-hello-world.getTextSelection"
 	],
-	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -54,23 +60,52 @@
 		"test-watch": "tsc -watch -p ./",
 		"pretest": "yarn run test-compile && yarn run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"commit": "git-cz",
+		"release": "release-it"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^13.1.0",
+		"@commitlint/config-conventional": "^13.1.0",
+		"@release-it/conventional-changelog": "^3.3.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.2.2",
 		"@types/node": "14.x",
 		"@types/vscode": "^1.54.0",
 		"@typescript-eslint/eslint-plugin": "^4.26.0",
 		"@typescript-eslint/parser": "^4.26.0",
+		"commitizen": "^4.2.4",
+		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^7.27.0",
 		"glob": "^7.1.7",
+		"husky": "4.3.4",
+		"lint-staged": "^11.1.2",
 		"mocha": "^8.4.0",
+		"prettier": "^2.3.2",
+		"release-it": "^14.11.5",
 		"ts-loader": "^9.2.2",
 		"typescript": "^4.3.2",
 		"vsce": "^1.96.3",
 		"vscode-test": "^1.5.2",
 		"webpack": "^5.38.1",
 		"webpack-cli": "^4.7.0"
+	},
+	"lint-staged": {
+		"*.{ts}": [
+			"yarn lint --fix"
+		],
+		"{*.{json,md}}": [
+			"prettier --write"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
