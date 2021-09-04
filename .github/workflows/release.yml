@@ -47,13 +47,13 @@ jobs:
 
       - name: Upload artifacts
         uses: actions/upload-release-asset@v1
-        env:
-          ASSET_NAME: ${{ github.event.repository.name }}-${GITHUB_REF#refs/*/}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./${ASSET_NAME}.vsix
-          asset_name: ${ASSET_NAME}.vsix
+          asset_path: ./$ASSET_NAME
+          asset_name: $ASSET_NAME
           asset_content_type: application/vsix
+        env:
+          ASSET_NAME: ${{ github.event.repository.name }}-${GITHUB_REF#refs/*/}.vsix
 
     env:
       USER_NAME: 'github-actions[bot]'
