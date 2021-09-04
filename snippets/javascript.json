@@ -1,0 +1,10 @@
+{
+  "Hello world": {
+    "prefix": "hw",
+    "body": [
+      "console.log(\"Hello world!\");",
+      "$1"
+    ],
+    "description": "Hello world"
+  }
+}

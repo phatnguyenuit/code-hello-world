@@ -48,6 +48,12 @@
 				"command": "code-hello-world.getTextSelection",
 				"title": "[code-hello-world] Get text selection"
 			}
+		],
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/javascript.json"
+			}
 		]
 	},
 	"scripts": {

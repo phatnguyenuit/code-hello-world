@@ -21,6 +21,9 @@ Hello World code extension.
 - Hello with prompt
 - Pick selection
 - Get selected text
+- Snippets:
+  - `JavaScript`
+    - `hw` => `console.log("Hello world!")`
 
 ## Requirements
 
