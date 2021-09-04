@@ -5,8 +5,13 @@
 
 Hello World code extension.
 
+## Table of contents
+
 - [Hello World Code Extension](#hello-world-code-extension)
+  - [Table of contents](#table-of-contents)
   - [Features](#features)
+  - [Snippets](#snippets)
+    - [Console methods](#console-methods)
   - [Requirements](#requirements)
   - [Extension Settings](#extension-settings)
   - [Known Issues](#known-issues)
@@ -21,8 +26,15 @@ Hello World code extension.
 - Hello with prompt
 - Pick selection
 - Get selected text
-- Snippets:
-  - `hw` => `console.log("Hello world!")`. Available for programming languages: `JavaScript`, `TypeScript`, `JavaScript React`, `TypeScript React`,
+
+## Snippets
+
+Below is a list of all available snippets and the triggers of each one. The **⇥** means the `TAB` key.
+
+### Console methods
+| Trigger | Content                               |
+| ------: | ------------------------------------- |
+|   `hw→` | console `console.log("Hello world!")` |
 
 ## Requirements
 
