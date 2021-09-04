@@ -1,5 +1,8 @@
 # Hello World Code Extension
 
+![CI/CD](https://github.com/phatnguyenuit/code-hello-world/workflows/Release/badge.svg)
+![License](https://img.shields.io/github/license/phatnguyenuit/code-hello-world)
+
 Hello World code extension.
 
 - [Hello World Code Extension](#hello-world-code-extension)

@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  release:
+    name: Test and deploy to GitHub Pages
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [12.x]
+        os: [ubuntu-latest]
+    steps:
+      - name: Check repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup NodeJS ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --no-progress --non-interactive
+
+      - name: Setup git config
+        run: |
+          git config --global user.name $USER_NAME
+          git config --global user.email $USER_EMAIL
+          git remote set-url origin https://${GITHUB_TOKEN}@github.com/${REPOSITORY}
+
+      - name: Release
+        run: yarn release
+
+      - name: Package VSCode extension into ".vsix" file
+        run: yarn vsce:package
+
+      - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.2.3
+
+      - name: Upload artifacts
+        uses: actions/upload-release-asset@v1
+        env:
+          ASSET_NAME: ${{ github.event.repository.name }}-${GITHUB_REF#refs/*/}
+        with:
+          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          asset_path: ./${ASSET_NAME}.vsix
+          asset_name: ${ASSET_NAME}.vsix
+          asset_content_type: application/vsix
+
+    env:
+      USER_NAME: 'github-actions[bot]'
+      USER_EMAIL: 'github-actions[bot]@users.noreply.github.com'
+      GITHUB_TOKEN: ${{ github.token }} #GITHUB_TOKEN is required for `release-it`
+      REPOSITORY: ${{ github.repository }}
