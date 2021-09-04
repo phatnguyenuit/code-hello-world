@@ -1,13 +1,19 @@
 {
 	"name": "code-hello-world",
-	"displayName": "code-hello-world",
-	"description": "Hello world VS Code extension",
 	"version": "1.0.0",
-	"icon": "images/logo-128x128.png",
+	"author": "PhatNguyen <phatnt.uit@gmail.com> (https://phatnguyenuit.github.io)",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/phatnguyenuit/code-hello-world.git"
+	},
+	"publisher": "fast-nguyen",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
-	"publisher": "fast-nguyen",
+	"displayName": "code-hello-world",
+	"description": "Hello world VS Code extension",
+	"icon": "images/logo-128x128.png",
 	"categories": [
 		"Other"
 	],
