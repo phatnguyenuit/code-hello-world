@@ -6,7 +6,7 @@ on:
 
 jobs:
   release:
-    name: Test and deploy to GitHub Pages
+    name: Build & Release VSCode extension
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
