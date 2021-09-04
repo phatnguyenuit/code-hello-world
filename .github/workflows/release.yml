@@ -45,5 +45,5 @@ jobs:
     env:
       USER_NAME: 'github-actions[bot]'
       USER_EMAIL: 'github-actions[bot]@users.noreply.github.com'
-      GITHUB_TOKEN: ${{ github.token }} #GITHUB_TOKEN is required for `release-it`
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} #GITHUB_TOKEN is required for `release-it`
       REPOSITORY: ${{ github.repository }}
