@@ -1,12 +1,12 @@
-name: Release
+name: Upload artifacts
 
 on:
-  push:
-    branches: [master]
+  release:
+    types: [published]
 
 jobs:
-  release:
-    name: Build & Release
+  upload-artifacts:
+    name: Upload artifacts
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -39,8 +39,18 @@ jobs:
           git config --global user.email $USER_EMAIL
           git remote set-url origin https://${GITHUB_TOKEN}@github.com/${REPOSITORY}
 
-      - name: Release
-        run: yarn release
+      - name: Package VSCode extension into ".vsix" file
+        run: yarn vsce:package
+
+      - name: Upload artifacts
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: './$ASSET_NAME'
+          asset_name: $ASSET_NAME
+          asset_content_type: application/vsix
+        env:
+          ASSET_NAME: '${{ github.event.repository.name }}-${GITHUB_REF#refs/*/}.vsix'
 
     env:
       USER_NAME: 'github-actions[bot]'
