@@ -1,3 +1,5 @@
+## [1.1.2](https://github.com/phatnguyenuit/code-hello-world/compare/1.1.1...1.1.2) (2021-09-04)
+
 ## [1.1.1](https://github.com/phatnguyenuit/code-hello-world/compare/1.1.0...1.1.1) (2021-09-04)
 
 # [1.1.0](https://github.com/phatnguyenuit/code-hello-world/compare/1.0.17...1.1.0) (2021-09-04)
