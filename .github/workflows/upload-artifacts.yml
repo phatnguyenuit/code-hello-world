@@ -53,9 +53,4 @@ jobs:
           asset_content_type: application/vsix # Reference: https://github.com/samuelneff/MimeTypeMap/blob/677523b50629845c7fa39cf895bb8584be16a416/MimeTypeMap.cs#L572
         env:
           ASSET_NAME: '${{ github.event.repository.name }}-${{ env.RELEASE_VERSION }}.vsix'
-
-    env:
-      USER_NAME: 'github-actions[bot]'
-      USER_EMAIL: 'github-actions[bot]@users.noreply.github.com'
-      GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} #GITHUB_TOKEN is required for `release-it`
-      REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
